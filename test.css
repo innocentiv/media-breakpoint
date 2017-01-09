@@ -1,0 +1,79 @@
+/*==== Test ====*/
+/*
+  small: 0px
+  medium: 640px
+  large: 1024px
+  xlarge: 1200px
+  xxlarge: 1440px
+*/
+@media (min-width: 0px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small)"; } }
+@media (min-width: 10px) {
+  selector-breakpoint {
+    test: "@include breakpoint(10px)"; } }
+@media (min-width: 10px) and (max-width: 100px) {
+  selector-breakpoint {
+    test: "@include breakpoint(10px 100px)"; } }
+@media (min-width: 0px) and (max-width: 100px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small 100px)"; } }
+@media (min-width: 640px) and (max-width: 1199px) {
+  selector-breakpoint {
+    test: "@include breakpoint(medium large)"; } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  selector-breakpoint {
+    test: "@include breakpoint(medium only)"; } }
+@media (max-height: 1199px) {
+  selector-breakpoint {
+    test: "@include breakpoint(large down height)"; } }
+@media (min-width: 1200px) and (max-width: 1439px) {
+  selector-breakpoint {
+    test: "@include breakpoint(xlarge only)"; } }
+@media (min-width: 1440px) {
+  selector-breakpoint {
+    test: "@include breakpoint(xxlarge only)"; } }
+@media (max-width: 100px) {
+  selector-breakpoint {
+    test: "@include breakpoint(100px down)"; } }
+@media (min-width: 10px) and (max-width: 10px) {
+  selector-breakpoint {
+    test: "@include breakpoint(10px only)"; } }
+
+@media (orientation: portrait) {
+  selector-media {
+    test: "@include media(portrait)"; } }
+@media (orientation: landscape) {
+  selector-media {
+    test: "@include media(landscape)"; } }
+@media only print {
+  selector-media {
+    test: "@include media(print)"; } }
+@media only screen {
+  selector-media {
+    test: "@include media(screen)"; } }
+@media only speech {
+  selector-media {
+    test: "@include media(speech)"; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  selector-media {
+    test: "@include media(2x)"; } }
+@media (-webkit-min-device-pixel-ratio: 1.30208), (min-resolution: 125dpi) {
+  selector-media {
+    test: "@include media(125dpi)"; } }
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  selector-media {
+    test: "@include media(2.5dppx)"; } }
+@media only screen and (-webkit-min-device-pixel-ratio: 0.75), only screen and (min-resolution: 72dpi) {
+  selector-media {
+    test: "@include media(screen 72dpi)"; } }
+
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3), only screen and (orientation: portrait) and (min-resolution: 288dpi) {
+  selector-media {
+    test: "@include media(screen portrait 3x)"; } }
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (min-resolution: 192dpi) {
+  selector {
+    test: "@include breakpoint(large only) -> @include media(screen landscape 2x)"; } }
+
+/*# sourceMappingURL=test.css.map */

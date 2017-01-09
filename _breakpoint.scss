@@ -1,0 +1,112 @@
+// ----------------
+// Breakpoint mixin
+// ----------------
+
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+) !default;
+
+@function _mb-in($list, $item){
+  @return index($list, $item) != null;
+}
+
+@function _mb-remove($list, $items){
+  $result: ();
+  @each $el in $list {
+    @if not _mb-in($items, $el) {
+      $result: append($result, $el)
+    }
+  }
+  @return $result;
+}
+
+@function _mb-is-px($num) {
+  @return type-of($num) == number and unit($num) == px;
+}
+
+@function _mb-is-bp($bp){
+  @return map_has_key($breakpoints, $bp) and _mb-is-px(map_get($breakpoints, $bp));
+}
+
+@function _mb-get-bp($range, $type){
+  $bp: nth($range, if($type == min, 1, -1));
+  @if _mb-is-px($bp) { 
+    @return $bp;
+  }
+  @if not _mb-is-bp($bp) {
+    @error "'#{$bp}' is not a valid breakpoint";
+  }
+  @if $type == min {
+    @return map_get($breakpoints, $bp)
+  }
+  @if $type == max {
+    $index: index(map_keys($breakpoints), $bp);
+    @if $index < length($breakpoints) {
+      @return nth(map_values($breakpoints), $index + 1) - 1px;
+    }
+    @return false;
+  }
+}
+
+@mixin breakpoint($query){
+  $range: _mb-remove($query, up down only height);
+  $min: false;
+  $max: false;
+  $is-height: _mb-in($query, height);
+
+  @if not _mb-in($query, down) {
+    $min: _mb-get-bp($range, min);
+  }
+  @if _mb-in($query, down) or _mb-in($query, only) or length($range) > 1 {
+    $max: _mb-get-bp($range, max);
+  }
+
+  $attr: if($is-height, height, width);
+  $mq: if($min, "(min-#{$attr}: #{$min})", "")
+       if($min and $max, "and", "")
+       if($max, "(max-#{$attr}: #{$max})", "");
+       
+  @media #{$mq} {
+    @content;
+  }
+}
+
+@mixin media($queries) {
+  $unit: null;
+  $query: nth($queries, 1);
+  
+  @if type-of($query) == number and _mb-in(x dppx dpi, unit($query)){
+    $unit: unit($query);
+    $query: $query / ($query * 0 + 1);
+  }
+  
+  $mq: null;
+  @if _mb-in(landscape portrait, $query) {
+    $mq: "(orientation: #{$query})";
+  } @else if _mb-in(print screen speech, $query){
+    $mq: "only " +$query;
+  } @else if $unit == x or $unit == dppx {
+    $mq: "(-webkit-min-device-pixel-ratio: #{$query}), (min-resolution: #{$query*96dpi})",
+  } @else if $unit == dpi{
+    $mq: "(-webkit-min-device-pixel-ratio: #{$query/96}), (min-resolution: #{$query*1dpi})",
+  } @else {
+    @error "'#{$query}' is not a valid query";
+  }
+  
+  @media #{$mq}
+  {
+    @if length($queries) > 1 {
+      @include media(_mb-remove($queries, $query)){
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+
