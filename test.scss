@@ -36,6 +36,8 @@ selector-breakpoint {
   @each $query in $bp-queries {
     @include breakpoint($query){
       test: "@include breakpoint(#{$query})";
+      min: mb-context(min);
+      max: mb-context(max);
     };
   }
 }
@@ -44,6 +46,9 @@ selector-media{
   @each $query in $media-queries {
     @include media($query){
       test:"@include media(#{$query})";
+      orientation: mb-context(orientation);
+      device: mb-context(device);
+      resolution: mb-context(resolution);
     };
   }
 }
@@ -52,6 +57,11 @@ selector {
   @include breakpoint(large only){
     @include media(screen landscape 2x){
       test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+      min: mb-context(min);
+      max: mb-context(max);
+      orientation: mb-context(orientation);
+      device: mb-context(device);
+      resolution: mb-context(resolution);
     }
   }
 }
