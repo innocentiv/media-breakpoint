@@ -1,0 +1,57 @@
+/*==== Test ====*/
+/*
+  small: 0px
+  medium: 640px
+  large: 1024px
+  xlarge: 1200px
+  xxlarge: 1440px
+*/
+
+@import "breakpoint";
+
+$bp-queries: (small,
+           10px,
+           10px 100px,
+           small 100px,
+           medium large,
+           medium only,
+           large down height,
+           xlarge only,
+           xxlarge only,
+           100px down,
+           10px only);
+           
+$media-queries: (portrait,
+                 landscape,
+                 print,
+                 screen,
+                 speech,
+                 2x,
+                 125dpi,
+                 2.5dppx,
+                 screen 72dpi,
+                 screen portrait 3x);
+
+selector-breakpoint {
+  @each $query in $bp-queries {
+    @include breakpoint($query){
+      test: "@include breakpoint(#{$query})";
+    };
+  }
+}
+
+selector-media{
+  @each $query in $media-queries {
+    @include media($query){
+      test:"@include media(#{$query})";
+    };
+  }
+}
+
+selector {
+  @include breakpoint(large only){
+    @include media(screen landscape 2x){
+      test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+    }
+  }
+}
