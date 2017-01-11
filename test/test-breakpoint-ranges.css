@@ -1,0 +1,23 @@
+@media (min-width: 10px) {
+  selector-breakpoint {
+    test: "@include breakpoint(10px)"; } }
+@media (min-width: 30px) {
+  selector-breakpoint {
+    test: "@include breakpoint(30px up)"; } }
+@media (max-width: 50px) {
+  selector-breakpoint {
+    test: "@include breakpoint(50px down)"; } }
+@media (min-width: 70px) and (max-width: 70px) {
+  selector-breakpoint {
+    test: "@include breakpoint(70px only)"; } }
+@media (min-width: 10px) and (max-width: 60px) {
+  selector-breakpoint {
+    test: "@include breakpoint(10px 60px)"; } }
+@media (min-width: 0px) and (max-width: 200px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small 200px)"; } }
+@media (min-width: 0px) {
+  selector-breakpoint {
+    test: "@include breakpoint(0px)"; } }
+
+/*# sourceMappingURL=test-breakpoint-ranges.css.map */

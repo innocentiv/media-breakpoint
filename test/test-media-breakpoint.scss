@@ -1,0 +1,15 @@
+@import "../breakpoint";
+
+selector {
+  @include breakpoint(large only){
+    @include media(screen landscape 2x){
+      test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+    }
+  }
+  
+  @include media(print){
+    @include breakpoint(medium down){
+      test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+    }
+  }
+}
