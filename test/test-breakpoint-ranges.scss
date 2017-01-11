@@ -1,0 +1,20 @@
+@import "../breakpoint";
+
+// Queries
+$bp-queries: (
+  10px,
+  30px up,
+  50px down,
+  70px only,
+  10px 60px,
+  small 200px,
+  0px
+);
+
+selector-breakpoint {
+  @each $query in $bp-queries {
+    @include breakpoint($query){
+      test: "@include breakpoint(#{$query})";
+    };
+  }
+}

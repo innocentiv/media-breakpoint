@@ -1,0 +1,33 @@
+@media (orientation: portrait) {
+  selector-media {
+    test: "@include media(portrait)"; } }
+@media (orientation: landscape) {
+  selector-media {
+    test: "@include media(landscape)"; } }
+@media only print {
+  selector-media {
+    test: "@include media(print)"; } }
+@media only screen {
+  selector-media {
+    test: "@include media(screen)"; } }
+@media only speech {
+  selector-media {
+    test: "@include media(speech)"; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  selector-media {
+    test: "@include media(2x)"; } }
+@media (-webkit-min-device-pixel-ratio: 1.30208), (min-resolution: 125dpi) {
+  selector-media {
+    test: "@include media(125dpi)"; } }
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  selector-media {
+    test: "@include media(2.5dppx)"; } }
+@media only screen and (-webkit-min-device-pixel-ratio: 0.75), only screen and (min-resolution: 72dpi) {
+  selector-media {
+    test: "@include media(screen 72dpi)"; } }
+
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3), only screen and (orientation: portrait) and (min-resolution: 288dpi) {
+  selector-media {
+    test: "@include media(screen portrait 3x)"; } }
+
+/*# sourceMappingURL=test-media.css.map */

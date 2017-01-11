@@ -1,0 +1,23 @@
+@import "../breakpoint";
+
+// Queries
+$md-queries: (
+  portrait,
+  landscape,
+  print,
+  screen,
+  speech,
+  2x,
+  125dpi,
+  2.5dppx,
+  screen 72dpi,
+  screen portrait 3x
+);
+
+selector-media{
+  @each $query in $md-queries {
+    @include media($query){
+      test:"@include media(#{$query})";
+    };
+  }
+}

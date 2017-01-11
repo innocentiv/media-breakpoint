@@ -1,0 +1,60 @@
+@import "../breakpoint";
+
+// Test against default breapoints
+$breakpoints: (
+  small: 0px,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px
+);
+
+// Queries
+$bp-queries: (
+  small,
+  medium,
+  large,
+  xlarge,
+  xxlarge,
+  medium up,
+  large down,
+  xxlarge only,
+  small only,
+  small large,
+  medium large
+);
+
+selector-breakpoint {
+  @each $query in $bp-queries {
+    @include breakpoint($query){
+      test: "@include breakpoint(#{$query})";
+    };
+  }
+}
+
+// New Breakpoints map
+$breakpoints: (
+  smartphone: 0px,
+  tablet: 720px,
+  desktop: 1024px,
+  large-desktop: 1300px,
+);
+
+// Queries
+$bp-queries: (
+  smartphone,
+  tablet,
+  desktop,
+  large-desktop,
+  tablet up,
+  desktop down,
+  large-desktop only,
+);
+
+selector-breakpoint {
+  @each $query in $bp-queries {
+    @include breakpoint($query){
+      test: "@include breakpoint(#{$query})";
+    };
+  }
+}
