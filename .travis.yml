@@ -1,0 +1,13 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.2
+  - jruby
+  - rbx-2
+
+before_install:
+  - gem install sass
+
+script:
+  - bundle exec sassunit
+
