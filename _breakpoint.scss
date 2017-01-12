@@ -75,7 +75,7 @@ $breakpoints: (
   $range: _mb-remove($query, up down only height);
   $min: null;
   $max: null;
-  $is-height: _mb-in($query, height);
+  $attr: if(_mb-in($query, height), height, width);
 
   @if not _mb-in($query, down) {
     $min: _mb-get-bp($range, min);
@@ -84,7 +84,6 @@ $breakpoints: (
     $max: _mb-get-bp($range, max);
   }
 
-  $attr: if($is-height, height, width);
   $mq: if($min, "(min-#{$attr}: #{$min})", "")
        if($min and $max, "and", "")
        if($max, "(max-#{$attr}: #{$max})", "");
