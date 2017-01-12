@@ -10,6 +10,25 @@ $breakpoints: (
   xxlarge: 1440px,
 ) !default;
 
+@mixin _mb-reset-context(){
+  $_mb-context: (
+    min: null,
+    max: null,
+    resolution: null,
+    orientation: all,
+    device: all
+  ) !global;
+}
+@include _mb-reset-context();
+
+@mixin _mb-set-context($map){
+  $_mb-context: map-merge($_mb-context, $map) !global;
+}
+
+@function mb-context($key){
+  @return map-get($_mb-context , $key);
+}
+
 @function _mb-in($list, $item){
   @return index($list, $item) != null;
 }
@@ -48,14 +67,14 @@ $breakpoints: (
     @if $index < length($breakpoints) {
       @return nth(map_values($breakpoints), $index + 1) - 1px;
     }
-    @return false;
+    @return null;
   }
 }
 
 @mixin breakpoint($query){
   $range: _mb-remove($query, up down only height);
-  $min: false;
-  $max: false;
+  $min: null;
+  $max: null;
   $is-height: _mb-in($query, height);
 
   @if not _mb-in($query, down) {
@@ -70,9 +89,11 @@ $breakpoints: (
        if($min and $max, "and", "")
        if($max, "(max-#{$attr}: #{$max})", "");
        
+  @include _mb-set-context((min: $min, max: $max));
   @media #{$mq} {
     @content;
   }
+  @include _mb-reset-context();
 }
 
 @mixin media($queries) {
@@ -87,12 +108,16 @@ $breakpoints: (
   $mq: null;
   @if _mb-in(landscape portrait, $query) {
     $mq: "(orientation: #{$query})";
+    @include _mb-set-context((orientation: $query));
   } @else if _mb-in(print screen speech, $query){
-    $mq: "only " +$query;
+    $mq: "only " + $query;
+    @include _mb-set-context((device: $query));
   } @else if $unit == x or $unit == dppx {
-    $mq: "(-webkit-min-device-pixel-ratio: #{$query}), (min-resolution: #{$query*96dpi})",
+    $mq: "(-webkit-min-device-pixel-ratio: #{$query}), (min-resolution: #{$query*96dpi})";
+    @include _mb-set-context((resolution: #{$query+$unit}));
   } @else if $unit == dpi{
-    $mq: "(-webkit-min-device-pixel-ratio: #{$query/96}), (min-resolution: #{$query*1dpi})",
+    $mq: "(-webkit-min-device-pixel-ratio: #{$query/96}), (min-resolution: #{$query*1dpi})";
+    @include _mb-set-context((resolution: #{$query+$unit}));
   } @else {
     @error "'#{$query}' is not a valid query";
   }
@@ -107,6 +132,7 @@ $breakpoints: (
       @content;
     }
   }
+  @include _mb-reset-context();
 }
 
 

@@ -1,0 +1,134 @@
+@media (min-width: 0px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small)";
+    min: 0px; } }
+@media (min-width: 640px) {
+  selector-breakpoint {
+    test: "@include breakpoint(medium)";
+    min: 640px; } }
+@media (min-width: 1024px) {
+  selector-breakpoint {
+    test: "@include breakpoint(large)";
+    min: 1024px; } }
+@media (min-width: 1200px) {
+  selector-breakpoint {
+    test: "@include breakpoint(xlarge)";
+    min: 1200px; } }
+@media (min-width: 1440px) {
+  selector-breakpoint {
+    test: "@include breakpoint(xxlarge)";
+    min: 1440px; } }
+@media (min-width: 640px) {
+  selector-breakpoint {
+    test: "@include breakpoint(medium up)";
+    min: 640px; } }
+@media (max-width: 1199px) {
+  selector-breakpoint {
+    test: "@include breakpoint(large down)";
+    max: 1199px; } }
+@media (min-width: 1440px) {
+  selector-breakpoint {
+    test: "@include breakpoint(xxlarge only)";
+    min: 1440px; } }
+@media (min-width: 0px) and (max-width: 639px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small only)";
+    min: 0px;
+    max: 639px; } }
+@media (min-width: 0px) and (max-width: 1199px) {
+  selector-breakpoint {
+    test: "@include breakpoint(small large)";
+    min: 0px;
+    max: 1199px; } }
+@media (min-width: 640px) and (max-width: 1199px) {
+  selector-breakpoint {
+    test: "@include breakpoint(medium large)";
+    min: 640px;
+    max: 1199px; } }
+
+@media (orientation: portrait) {
+  selector-media {
+    test: "@include media(portrait)";
+    orientation: portrait;
+    device: all; } }
+@media (orientation: landscape) {
+  selector-media {
+    test: "@include media(landscape)";
+    orientation: landscape;
+    device: all; } }
+@media only print {
+  selector-media {
+    test: "@include media(print)";
+    orientation: all;
+    device: print; } }
+@media only screen {
+  selector-media {
+    test: "@include media(screen)";
+    orientation: all;
+    device: screen; } }
+@media only speech {
+  selector-media {
+    test: "@include media(speech)";
+    orientation: all;
+    device: speech; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  selector-media {
+    test: "@include media(2x)";
+    orientation: all;
+    device: all;
+    resolution: 2x; } }
+@media (-webkit-min-device-pixel-ratio: 1.30208), (min-resolution: 125dpi) {
+  selector-media {
+    test: "@include media(125dpi)";
+    orientation: all;
+    device: all;
+    resolution: 125dpi; } }
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  selector-media {
+    test: "@include media(2.5dppx)";
+    orientation: all;
+    device: all;
+    resolution: 2.5dppx; } }
+@media only screen and (-webkit-min-device-pixel-ratio: 0.75), only screen and (min-resolution: 72dpi) {
+  selector-media {
+    test: "@include media(screen 72dpi)";
+    orientation: all;
+    device: screen;
+    resolution: 72dpi; } }
+
+@media only screen and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3), only screen and (orientation: portrait) and (min-resolution: 288dpi) {
+  selector-media {
+    test: "@include media(screen portrait 3x)";
+    orientation: portrait;
+    device: screen;
+    resolution: 3x; } }
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (min-resolution: 192dpi) {
+  selector {
+    test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+    min: 1024px;
+    max: 1199px;
+    orientation: landscape;
+    device: screen;
+    resolution: 2x; } }
+
+@media only print and (max-width: 1023px) {
+  selector {
+    test: "@include media(print) -> @include breakpoint(medium down)";
+    max: 1023px;
+    orientation: all;
+    device: print; } }
+
+@media (min-width: 1024px) {
+  selector {
+    test: "@include breakpoint(large)";
+    min: 1024px;
+    orientation: all;
+    device: all; } }
+@media only screen {
+  selector {
+    test: "@include media(screen)";
+    orientation: all;
+    device: screen; } }
+
+/*# sourceMappingURL=test-context.css.map */
