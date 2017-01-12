@@ -6,3 +6,6 @@ rvm:
 script:
   - bundle exec sassunit
 
+notifications:
+  email: false
+
