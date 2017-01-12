@@ -12,9 +12,9 @@ $breakpoints: (
 
 @mixin _mb-reset-context(){
   $_mb-context: (
-    min: false,
-    max: false,
-    resolution: false,
+    min: null,
+    max: null,
+    resolution: null,
     orientation: all,
     device: all
   ) !global;
@@ -67,14 +67,14 @@ $breakpoints: (
     @if $index < length($breakpoints) {
       @return nth(map_values($breakpoints), $index + 1) - 1px;
     }
-    @return false;
+    @return null;
   }
 }
 
 @mixin breakpoint($query){
   $range: _mb-remove($query, up down only height);
-  $min: false;
-  $max: false;
+  $min: null;
+  $max: null;
   $is-height: _mb-in($query, height);
 
   @if not _mb-in($query, down) {
