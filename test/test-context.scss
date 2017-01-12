@@ -1,0 +1,92 @@
+@import "../breakpoint";
+
+// Queries
+$bp-queries: (
+  small,
+  medium,
+  large,
+  xlarge,
+  xxlarge,
+  medium up,
+  large down,
+  xxlarge only,
+  small only,
+  small large,
+  medium large
+);
+           
+$md-queries: (
+  portrait,
+  landscape,
+  print,
+  screen,
+  speech,
+  2x,
+  125dpi,
+  2.5dppx,
+  screen 72dpi,
+  screen portrait 3x
+);
+
+selector-breakpoint {
+  @each $query in $bp-queries {
+    @include breakpoint($query){
+      test: "@include breakpoint(#{$query})";
+      min: mb-context(min);
+      max: mb-context(max);
+    };
+  }
+}
+
+selector-media{
+  @each $query in $md-queries {
+    @include media($query){
+      test:"@include media(#{$query})";
+      orientation: mb-context(orientation);
+      device: mb-context(device);
+      resolution: mb-context(resolution);
+    };
+  }
+}
+
+selector {
+  @include breakpoint(large only){
+    @include media(screen landscape 2x){
+      test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
+      min: mb-context(min);
+      max: mb-context(max);
+      orientation: mb-context(orientation);
+      device: mb-context(device);
+      resolution: mb-context(resolution);
+    }
+  }
+  
+  @include media(print){
+    @include breakpoint(medium down){
+      test: "@include media(print) -> @include breakpoint(medium down)";
+      min: mb-context(min);
+      max: mb-context(max);
+      orientation: mb-context(orientation);
+      device: mb-context(device);
+      resolution: mb-context(resolution);
+    }
+  }
+
+  @include breakpoint(large){
+    test: "@include breakpoint(large)";
+    min: mb-context(min);
+    max: mb-context(max);
+    orientation: mb-context(orientation);
+    device: mb-context(device);
+    resolution: mb-context(resolution);
+  }
+
+  @include media(screen){
+    test: "@include media(screen)";
+    min: mb-context(min);
+    max: mb-context(max);
+    orientation: mb-context(orientation);
+    device: mb-context(device);
+    resolution: mb-context(resolution);
+  }
+}
