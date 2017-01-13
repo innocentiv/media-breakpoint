@@ -4,6 +4,7 @@ _mb-get-length {
   em: 4.5em;
   decimal: 3.15625em;
   negative: -2.5em;
-  context: 4em; }
+  context: 4em;
+  pixel-before: 39.9375em; }
 
 /*# sourceMappingURL=test-fun-length.css.map */
