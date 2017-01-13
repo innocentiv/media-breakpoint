@@ -43,8 +43,8 @@ $breakpoints: (
   @return $result;
 }
 
-@function _mb-is-px($num) {
-  @return type-of($num) == number and unit($num) == px;
+@function _mb-is-length($num) {
+  @return type-of($num) == number and _mb-in(px em rem, unit($num));
 }
 
 @function _mb-get-length($num, $browser-context: 16px) {
@@ -59,7 +59,7 @@ $breakpoints: (
 
 @function _mb-get-bp($range, $type){
   $bp: nth($range, if($type == min, 1, -1));
-  @if _mb-is-px($bp) { 
+  @if _mb-is-length($bp) { 
     @return $bp;
   }
   @if not _mb-is-bp($bp) {
