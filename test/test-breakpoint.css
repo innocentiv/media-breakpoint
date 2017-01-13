@@ -1,56 +1,56 @@
-@media (min-width: 0px) {
+@media (min-width: 0em) {
   selector-breakpoint {
     test: "@include breakpoint(small)"; } }
-@media (min-width: 640px) {
+@media (min-width: 40em) {
   selector-breakpoint {
     test: "@include breakpoint(medium)"; } }
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   selector-breakpoint {
     test: "@include breakpoint(large)"; } }
-@media (min-width: 1200px) {
+@media (min-width: 75em) {
   selector-breakpoint {
     test: "@include breakpoint(xlarge)"; } }
-@media (min-width: 1440px) {
+@media (min-width: 90em) {
   selector-breakpoint {
     test: "@include breakpoint(xxlarge)"; } }
-@media (min-width: 640px) {
+@media (min-width: 40em) {
   selector-breakpoint {
     test: "@include breakpoint(medium up)"; } }
-@media (max-width: 1199px) {
+@media (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(large down)"; } }
-@media (min-width: 1440px) {
+@media (min-width: 90em) {
   selector-breakpoint {
     test: "@include breakpoint(xxlarge only)"; } }
-@media (min-width: 0px) and (max-width: 639px) {
+@media (min-width: 0em) and (max-width: 39.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(small only)"; } }
-@media (min-width: 0px) and (max-width: 1199px) {
+@media (min-width: 0em) and (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(small large)"; } }
-@media (min-width: 640px) and (max-width: 1199px) {
+@media (min-width: 40em) and (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(medium large)"; } }
 
-@media (min-width: 0px) {
+@media (min-width: 0em) {
   selector-breakpoint {
     test: "@include breakpoint(smartphone)"; } }
-@media (min-width: 720px) {
+@media (min-width: 45em) {
   selector-breakpoint {
     test: "@include breakpoint(tablet)"; } }
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   selector-breakpoint {
     test: "@include breakpoint(desktop)"; } }
-@media (min-width: 1300px) {
+@media (min-width: 81.25em) {
   selector-breakpoint {
     test: "@include breakpoint(large-desktop)"; } }
-@media (min-width: 720px) {
+@media (min-width: 45em) {
   selector-breakpoint {
     test: "@include breakpoint(tablet up)"; } }
-@media (max-width: 1299px) {
+@media (max-width: 81.1875em) {
   selector-breakpoint {
     test: "@include breakpoint(desktop down)"; } }
-@media (min-width: 1300px) {
+@media (min-width: 81.25em) {
   selector-breakpoint {
     test: "@include breakpoint(large-desktop only)"; } }
 

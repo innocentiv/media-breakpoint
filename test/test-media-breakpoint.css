@@ -1,8 +1,8 @@
-@media only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (min-resolution: 192dpi) {
+@media only screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) and (min-resolution: 192dpi) {
   selector {
     test: "@include breakpoint(large only) -> @include media(screen landscape 2x)"; } }
 
-@media only print and (max-width: 1023px) {
+@media only print and (max-width: 63.9375em) {
   selector {
     test: "@include breakpoint(large only) -> @include media(screen landscape 2x)"; } }
 

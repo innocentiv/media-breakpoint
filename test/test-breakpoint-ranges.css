@@ -1,22 +1,22 @@
-@media (min-width: 10px) {
+@media (min-width: 0.625em) {
   selector-breakpoint {
     test: "@include breakpoint(10px)"; } }
-@media (min-width: 30px) {
+@media (min-width: 1.875em) {
   selector-breakpoint {
     test: "@include breakpoint(30px up)"; } }
-@media (max-width: 50px) {
+@media (max-width: 3.125em) {
   selector-breakpoint {
     test: "@include breakpoint(50px down)"; } }
-@media (min-width: 70px) and (max-width: 70px) {
+@media (min-width: 4.375em) and (max-width: 4.375em) {
   selector-breakpoint {
     test: "@include breakpoint(70px only)"; } }
-@media (min-width: 10px) and (max-width: 60px) {
+@media (min-width: 0.625em) and (max-width: 3.75em) {
   selector-breakpoint {
     test: "@include breakpoint(10px 60px)"; } }
-@media (min-width: 0px) and (max-width: 200px) {
+@media (min-width: 0em) and (max-width: 12.5em) {
   selector-breakpoint {
     test: "@include breakpoint(small 200px)"; } }
-@media (min-width: 0px) {
+@media (min-width: 0em) {
   selector-breakpoint {
     test: "@include breakpoint(0px)"; } }
 
