@@ -61,18 +61,18 @@ $breakpoints: (
 @function _mb-get-bp($range, $type){
   $bp: nth($range, if($type == min, 1, -1));
   @if _mb-is-length($bp) { 
-    @return $bp;
+    @return _mb-get-length($bp);
   }
   @if not _mb-is-bp($bp) {
     @error "'#{$bp}' is not a valid breakpoint";
   }
   @if $type == min {
-    @return map_get($breakpoints, $bp)
+    @return _mb-get-length(map_get($breakpoints, $bp));
   }
   @if $type == max {
     $index: index(map_keys($breakpoints), $bp);
     @if $index < length($breakpoints) {
-      @return nth(map_values($breakpoints), $index + 1) - 1px;
+      @return _mb-get-length(nth(map_values($breakpoints), $index + 1), $pixel-before: true);
     }
     @return null;
   }

@@ -1,50 +1,50 @@
-@media (min-width: 0px) {
+@media (min-width: 0em) {
   selector-breakpoint {
     test: "@include breakpoint(small)";
-    min: 0px; } }
-@media (min-width: 640px) {
+    min: 0em; } }
+@media (min-width: 40em) {
   selector-breakpoint {
     test: "@include breakpoint(medium)";
-    min: 640px; } }
-@media (min-width: 1024px) {
+    min: 40em; } }
+@media (min-width: 64em) {
   selector-breakpoint {
     test: "@include breakpoint(large)";
-    min: 1024px; } }
-@media (min-width: 1200px) {
+    min: 64em; } }
+@media (min-width: 75em) {
   selector-breakpoint {
     test: "@include breakpoint(xlarge)";
-    min: 1200px; } }
-@media (min-width: 1440px) {
+    min: 75em; } }
+@media (min-width: 90em) {
   selector-breakpoint {
     test: "@include breakpoint(xxlarge)";
-    min: 1440px; } }
-@media (min-width: 640px) {
+    min: 90em; } }
+@media (min-width: 40em) {
   selector-breakpoint {
     test: "@include breakpoint(medium up)";
-    min: 640px; } }
-@media (max-width: 1199px) {
+    min: 40em; } }
+@media (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(large down)";
-    max: 1199px; } }
-@media (min-width: 1440px) {
+    max: 74.9375em; } }
+@media (min-width: 90em) {
   selector-breakpoint {
     test: "@include breakpoint(xxlarge only)";
-    min: 1440px; } }
-@media (min-width: 0px) and (max-width: 639px) {
+    min: 90em; } }
+@media (min-width: 0em) and (max-width: 39.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(small only)";
-    min: 0px;
-    max: 639px; } }
-@media (min-width: 0px) and (max-width: 1199px) {
+    min: 0em;
+    max: 39.9375em; } }
+@media (min-width: 0em) and (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(small large)";
-    min: 0px;
-    max: 1199px; } }
-@media (min-width: 640px) and (max-width: 1199px) {
+    min: 0em;
+    max: 74.9375em; } }
+@media (min-width: 40em) and (max-width: 74.9375em) {
   selector-breakpoint {
     test: "@include breakpoint(medium large)";
-    min: 640px;
-    max: 1199px; } }
+    min: 40em;
+    max: 74.9375em; } }
 
 @media (orientation: portrait) {
   selector-media {
@@ -103,26 +103,26 @@
     device: screen;
     resolution: 3x; } }
 
-@media only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 1024px) and (max-width: 1199px) and (orientation: landscape) and (min-resolution: 192dpi) {
+@media only screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 64em) and (max-width: 74.9375em) and (orientation: landscape) and (min-resolution: 192dpi) {
   selector {
     test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
-    min: 1024px;
-    max: 1199px;
+    min: 64em;
+    max: 74.9375em;
     orientation: landscape;
     device: screen;
     resolution: 2x; } }
 
-@media only print and (max-width: 1023px) {
+@media only print and (max-width: 63.9375em) {
   selector {
     test: "@include media(print) -> @include breakpoint(medium down)";
-    max: 1023px;
+    max: 63.9375em;
     orientation: all;
     device: print; } }
 
-@media (min-width: 1024px) {
+@media (min-width: 64em) {
   selector {
     test: "@include breakpoint(large)";
-    min: 1024px;
+    min: 64em;
     orientation: all;
     device: all; } }
 @media only screen {
