@@ -47,6 +47,12 @@ $breakpoints: (
   @return type-of($num) == number and unit($num) == px;
 }
 
+@function _mb-get-length($num, $browser-context: 16px) {
+  @return if(unit($num) == em, $num,
+          if(unit($num) == rem, $num / 1rem * 1em,
+          if(unit($num) == px, $num / $browser-context * 1em, null)));
+}
+
 @function _mb-is-bp($bp){
   @return map_has_key($breakpoints, $bp) and _mb-is-px(map_get($breakpoints, $bp));
 }
