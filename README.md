@@ -74,10 +74,11 @@ $breakpoints: (
 
 ### Context
 use function `mb-context(variable)` to retreive values from the current context.
-| variable  | value | default |
-| ------------- | ------------- | ------------- |
-| min  | number in em  |null |
-| max  | number in em  |null |
+
+| variable  | value         | default |
+| --------- | ------------- | ------- |
+| min       | number in em  | null    |
+| max       | number in em  | null    |
 
 
 ## Media
@@ -110,11 +111,12 @@ You can use media mixin to affect different pixel density (x, dpi or dppx) , dev
 
 ### Context
 use function `mb-context(variable)` to retreive values from the current context.
-| variable  | value | default |
-| ------------- | ------------- | ------------- |
-| resolution  | number with unit (x, dpi, dppx)  | null |
-| orientation  | landscape, portrait  | all |
-| device  | screen, print, speech  | all |
+
+| variable     | value                            | default |
+| ------------ | -------------------------------- | ------- |
+| resolution   | number with unit (x, dpi, dppx)  | null    |
+| orientation  | landscape, portrait              | all     |
+| device       | screen, print, speech            | all     |
 
 ## Use media and breakpoint together
 You can use media and breakpoint mixins together by nesting one inside the other.
