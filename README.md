@@ -33,7 +33,7 @@ $breakpoints: (
 ) !default;
 ```
 
-![Breakpoint range examples](doc/breakpoint-table.svg)
+![Breakpoint range examples](https://cdn.rawgit.com/innocentiv/media-breakpoint/feature/readme/doc/breakpoint-table.svg)
 
 Keys can be redefined to better suit your project
 
