@@ -3,7 +3,7 @@ Sass mixins to manage breakpoint and device media query
 
 ## Breakpoint
 ```scss
-@include breakpoint(query list){
+@include breakpoint(query list) {
   //content
 };
 ```
@@ -83,7 +83,7 @@ use function `mb-context(variable)` to retreive values from the current context.
 
 ## Media
 ```scss
-@include media(query list){
+@include media(query list) {
   //content
 };
 ```
@@ -123,8 +123,8 @@ You can use media and breakpoint mixins together by nesting one inside the other
 
 ```scss
 selector {
-  @include breakpoint(large only){
-    @include media(screen landscape 2x){
+  @include breakpoint(large only) {
+    @include media(screen landscape 2x) {
       test: "@include breakpoint(large only) -> @include media(screen landscape 2x)";
     }
   }
